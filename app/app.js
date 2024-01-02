@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors());
 
 // Health check endpoint
-app.get("/", (req, res, next) => {
+app.get("/health", (req, res, next) => {
     res.status(200).json({
         message: "Service is up and running"
     });
