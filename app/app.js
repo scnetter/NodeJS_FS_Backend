@@ -2,6 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRouter = require("../router/userRouter");
+const {connect} = require('../db/db')
 
 // Request listener
 const app = express();
@@ -41,6 +42,6 @@ app.use((error, req, res, next) => {
     });
 });
 
-// DB connection will go here
-
+// Put at end so it only gets called first run through and closes when app is shutdown
+connect();
 module.exports = app;
